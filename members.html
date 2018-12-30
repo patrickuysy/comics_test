@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ComICS Admin - Courses</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="jquery/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+	<link rel="stylesheet" href="css/animate.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style>
+	body
+	{
+		margin: 0;
+		font-family: "Roboto", sans-serif;
+	}
+	.dark-red
+	{
+		background-color: #8b2323 !important;
+	}
+	.nav-wrapper
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #8B2323, #5E181F) !important;  
+		background: linear-gradient(to bottom, #8B2323, #5E181F) !important; 
+
+	}
+	.search-bar
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #BB8181, #916468) !important;  
+		background: linear-gradient(to bottom, #BB8181, #916468) !important;
+		color: white !important; 
+
+	}	
+	.input-field {width: 70%; margin: auto; } .search_container {margin-left: 300px; }
+	.drop {box-shadow: 0px 2px 5px #b5b5b5; font-family: "Roboto";}
+	.title{padding-left: 0.9em !important; font-size: 1.4em !important; font-family: "Comfortaa" !important;}
+	.tab a{color: #797979 !important;}
+	.tab a.active {background-color: #d9d9d9 !important; color: #de3d3d !important; font-family: "Roboto" !important; } 
+	.dataTables_filter {display: none; } .dataTables_paginate {float: left; margin-top: -56px; margin-right: 5px; } .dataTables_paginate .paginate_button {transition: 0.25s; height: 42px; } .dataTables_paginate .paginate_button:hover {background-color: #8B2323 !important; color: #8B2323 !important; background: #8B2323 !important; border: 1px solid #8B2323 !important; transition: 0.25s; } .dataTables_info {float: right !important; margin-top: -52px; margin-right: 120px; } table.dataTable thead th {padding: 10px 18px; border-bottom: 2px solid #8B2323 !important; } table.dataTable table {padding: 10px 18px 6px 18px; border-bottom: : 1px solid #8B2323 !important; } table.dataTable.no-footer {border-bottom: 2px solid #8B2323 !important; } table.dataTable {margin-top: 55px; }
+
+	.user-account{
+		width: 200px !important;
+
+	}
+
+	.dropdown-content a
+	{
+		color: #8B2323 !important;
+	}
+	.btn-flat:hover {background-color: #8B2323 !important; color: white !important; }
+	.pag_lr{color: #333 !important;}
+	.pag_lr:hover{color: white !important}
+
+	h4
+	{
+		font-family: "Comfortaa" !important;
+		font-size: 1.7em !important;
+	}
+	.input-width {width: 100%; }
+	.input-field input[type=text]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=text]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } .input-field input[type=password]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=password]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } option {color: #8b2323 !important; } .input-field input[type=date]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=date]:focus + label {color: #8b2323 !important;} .input-field input[type=date]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=date]:focus + label {color: #8b2323 !important;}.input-field input[type=datetime-local]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=datetime-local]:focus + label {color: #8b2323 !important;}
+
+	ul.dropdown-content.select-dropdown li span {
+		color: #8b2323; 
+	}
+
+	.chips:focus
+	{
+		border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;
+	}
+
+	.rogue_label
+	{
+		margin-top: -20px !important;
+	}
+
+		.checbox_box
+	{
+		border: 2px solid #dedede;
+		padding: 1em;
+		border-radius: 4px;
+		width: 100%;
+	}
+</style>
+</head>
+<body>
+	<nav> <!--NAV START--------------------------------------------------------------->
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo title">ComICS Admin</a>
+			<ul id="nav-mobile" class="right">
+				<li><a href="#!" class="dropdown-trigger active" data-target="logout"><i class="material-icons">account_circle</i></a></li>
+			</ul>
+			<ul id="logout" class="dropdown-content user-account">
+				<li><a href="#!" class="modal-trigger">Switch to Regular View</a></li>
+				<li class="divider"></li>
+				<li><a href="#!" class="modal-trigger">Logout</a></li>
+			</ul>
+			<form class="hide-on-med-and-down search_container">
+				<div class="input-field red lighten-4">
+					<input id="autocomplete-input" type="search" class="autocomplete search-bar" required>
+					<label class="label-icon search-icon" for="autocomplete-input"><i class="material-icons white-text">search</i></label>
+				</div>
+			</form>
+			<div class="nav-content drop">
+				<ul class="tabs grey lighten-5">
+					<li class="tab"><a href="#" >Student Space</a></li>
+					<li class="tab"><a href="#">Courses</a></li>
+					<li class="tab"><a href="#">Announcements</a></li>
+					<li class="tab"><a href="#">Schedule</a></li>
+					<li class="tab"><a href="#" class="active">Members</a></li>
+					<li class="tab"><a href="#">Content</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> <!--NAV END--------------------------------------------------------------->
+
+	<table id="example" class="mdl-data-table" style="width:100%">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>E-mail Address</th>
+				<th>Courses</th>
+				<th>User Level</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>JOSE ANGELO ROPA DE VERA</td>
+				<td>joseangelo.devera.iics@ust.edu.ph</td>
+				<td>ICS 115, IT 205</td>
+				<td>Admin</td>
+				<td>
+					<a href='#' class='waves-effect waves-light btn-small btn-flat modal-trigger tooltipped action-buttons' data-position="bottom" data-tooltip="View"><i class='material-icons'>remove_red_eye</i></a>
+					<a href='#edit_member_modal' class='waves-effect waves-light btn-small btn-flat modal-trigger tooltipped action-buttons modal-trigger' data-position="bottom" data-tooltip="Edit"><i class='material-icons'>edit</i></a>
+					<a href='#' class='waves-effect waves-light btn-small btn-flat modal-trigger tooltipped action-buttons' data-position="bottom" data-tooltip="Delete"><i class='material-icons'>delete</i></a>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	<div class="fixed-action-btn">
+		<a href="#add_member_modal" class="btn-floating btn-large dark-red waves-effect waves-light modal-trigger">
+			<i class="large material-icons">add</i>
+		</a>
+	</div>
+
+
+	<div id="add_member_modal" class="modal"><!--ADD MEMBER MODAL------------------------>
+		<div class="modal-content">
+			<h4>Add Member</h4>
+			<form>
+				<div class="input-field input-width">
+					<input type=text name="email" id=email required>
+					<label for="email"><b>E-mail Address </b><span style="color: red">*</span>
+					</div>
+					<label>
+						<input type="checkbox" class="filled-in"/>
+						<span>Is Admin</span>
+					</label>
+
+					<br><br>
+					<label><b>Courses <span class="red-text">*</span></b></label>
+					<div class="checbox_box">
+						<label>
+							<input type="checkbox" class="filled-in"/>
+							<span>Course Name</span>
+						</label>
+					</div>
+					
+
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-light grey btn">CANCEL</a>
+					<a href="#!" class="modal-close waves-effect waves-light blue darken-2 btn">EDIT</a>
+				</div>
+			</div><!--ADD MEMBER MODAL------------------------------------------------------>
+
+
+	<div id="edit_member_modal" class="modal"><!--EDIT MEMBER MODAL------------------------>
+		<div class="modal-content">
+			<h4>Edit Member</h4>
+			<form>
+				<div class="input-field input-width">
+					<input value="joseangelo.devera.iics@ust.edu.ph" type=text name="email" id=email disabled>
+					<label for="email"><b>E-mail Address </b><span style="color: red">*</span>
+					</div>
+					<label>
+						<input type="checkbox" class="filled-in" checked/>
+						<span>Is Admin</span>
+					</label>
+
+					<br><br>
+					<label><b>Courses <span class="red-text">*</span></b></label>
+					<div class="checbox_box">
+						<label>
+							<input type="checkbox" class="filled-in" checked />
+							<span>ICS 115</span>
+						</label>
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-light grey btn">CANCEL</a>
+					<a href="#!" class="modal-close waves-effect waves-light blue darken-2 btn">ADD</a>
+				</div>
+			</div><!--EDIT MEMBER MODAL------------------------------------------------------>
+
+
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.modal').modal();
+				$('.tooltipped').tooltip();
+				$('.dropdown-trigger').dropdown();
+				$(".dropdown-trigger").dropdown({
+					coverTrigger: false
+				});
+				$('.fixed-action-btn').floatingActionButton();
+				$('select').formSelect();
+
+
+				$('#example').DataTable({
+					"lengthChange": false,
+					"pagingType": "simple",
+					"pageLength": 10,
+					"dom": '<div>pt',
+					"language":{
+						"paginate":{
+							previous: "<i class='material-icons pag_lr'>chevron_left</i>",
+							next: "<i class='material-icons pag_lr'>chevron_right</i>"
+						}
+					}
+
+				});
+
+
+
+				oTable = $('#example').DataTable(); 
+				$('#autocomplete-input').keyup(function(){
+					oTable.search($(this).val()).draw() ;
+				});
+			});
+
+		</script>
+	</body>
+	</html>

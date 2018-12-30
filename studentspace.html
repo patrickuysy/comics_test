@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ComICS Admin - Courses</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="jquery/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+	<link rel="stylesheet" href="css/animate.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style>
+	body
+	{
+		margin: 0;
+		font-family: "Roboto", sans-serif;
+	}
+
+	.nav-wrapper
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #8B2323, #5E181F) !important;  
+		background: linear-gradient(to bottom, #8B2323, #5E181F) !important; 
+
+	}
+	.search-bar
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #BB8181, #916468) !important;  
+		background: linear-gradient(to bottom, #BB8181, #916468) !important;
+		color: white !important; 
+
+	}	
+
+	.search-bar2
+	{
+		background: white;
+		border-bottom:  2px solid #8b2323 !important;
+	}
+
+	.search-bar2 + label
+	{
+		color: #8b2323 !important;
+	}
+	.input-field {width: 70%; margin: auto; } 
+	.drop {box-shadow: 0px 2px 5px #b5b5b5; font-family: "Roboto";}
+	.title{padding-left: 0.9em !important; font-size: 1.4em !important; font-family: "Comfortaa" !important;}
+	.tab a{color: #797979 !important;}
+	.tab a.active {background-color: #d9d9d9 !important; color: #de3d3d !important; font-family: "Roboto" !important; } 
+	.dataTables_filter {display: none; } .dataTables_paginate {float: left; margin-top: -56px; margin-right: 5px; } .dataTables_paginate .paginate_button {transition: 0.25s; height: 42px; } .dataTables_paginate .paginate_button:hover {background-color: #8B2323 !important; color: #8B2323 !important; background: #8B2323 !important; border: 1px solid #8B2323 !important; transition: 0.25s; } .dataTables_info {float: right !important; margin-top: -52px; margin-right: 120px; } table.dataTable thead th {padding: 10px 18px; border-bottom: 2px solid #8B2323 !important; } table.dataTable table {padding: 10px 18px 6px 18px; border-bottom: : 1px solid #8B2323 !important; } table.dataTable.no-footer {border-bottom: 2px solid #8B2323 !important; } table.dataTable {margin-top: 55px; }
+	#initial_cont{transition: 0.5s;cursor: pointer;overflow-y: scroll; min-height: 55px; max-height: 120px; width: 100%;border: 2px solid #dedede; border-radius: 5px; padding: 6px;}
+	.groups_initial{ visibility: hidden;  margin-left: 45%; background-color: #333333; color: white; z-index: 1; position: absolute; text-align: center; display: block; left: 0; transition: 0.15s} 
+
+	#initial_cont:hover {background-color: #dedede}
+	#initial_cont:hover .groups_initial{visibility: visible;  transition: 0.5s; }
+	#initial_cont:hover .chip {background-color: white !important; opacity: 0.5; transition: 0.5s;}
+	.user-account{
+		width: 200px !important;
+
+	}
+
+	.dropdown-content a
+	{
+		color: #8B2323 !important;
+	}
+	.btn-flat:hover {background-color: #8B2323 !important; color: white !important; }
+	.pag_lr{color: #333 !important;}
+	.pag_lr:hover{color: white !important}
+
+	h4
+	{
+		font-family: "Comfortaa" !important;
+		font-size: 1.7em !important;
+	}
+	.input-width {width: 100%; }
+	.input-field input[type=text]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=text]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } .input-field input[type=password]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=password]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } option {color: #8b2323 !important; } .input-field input[type=date]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=date]:focus + label {color: #8b2323 !important;}
+
+	ul.dropdown-content.select-dropdown li span {
+		color: #8b2323; 
+	}
+
+	.chips:focus
+	{
+		border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;
+	}
+
+		.checbox_box
+	{
+		border: 2px solid #dedede;
+		padding: 1em;
+		border-radius: 4px;
+		width: 100%;
+	}
+</style>
+</head>
+<body>
+
+	<nav> <!--NAV START--------------------------------------------------------------->
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo title">ComICS Admin</a>
+			<ul id="nav-mobile" class="right">
+				<li><a href="#!" class="dropdown-trigger active" data-target="logout"><i class="material-icons">account_circle</i></a></li>
+			</ul>
+			<ul id="logout" class="dropdown-content user-account">
+				<li><a href="#!" class="modal-trigger">Switch to Regular View</a></li>
+				<li class="divider"></li>
+				<li><a href="#!" class="modal-trigger">Logout</a></li>
+			</ul>
+
+			<div class="nav-content drop">
+				<ul class="tabs grey lighten-5">
+					<li class="tab" ><a href="#" class="active">Student Space</a></li>
+					<li class="tab"><a href="#">Courses</a></li>
+					<li class="tab"><a href="#"  >Announcements</a></li>
+					
+					<li class="tab"><a href="#">Schedule</a></li>
+					<li class="tab"><a href="#">Members</a></li>
+					<li class="tab"><a href="#">Content</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> <!--NAV END--------------------------------------------------------------->
+	<div style="width: 85%; margin: auto; margin-top: 66px;">
+		<h4 class="grey-text text-darken-3">Edit Student Space</h4>
+		<div class="card white">
+			<div class="card-content grey-text text-darken-3">
+				<div class="row">
+					<div class="col s6">
+						<br>
+						<div class="input-field input-width">
+							<input value="" id="section" type="text" required>
+							<label for ="section"><b>Section <span style="color: red">*</span></b></label>
+						</div>
+					</div>
+					<div class="col s6">
+						<br>
+						<div class="input-field input-width">
+							<input value="" id="end_date" type="date" required>
+							<label for ="end_date"><b>End Date<span style="color: red">*</span></b></label>
+						</div>
+					</div>
+					<div class="col s6">
+						<br>
+						<div class="input-field input-width">
+							<select name="semester" required>
+								<option value="" disabled selected>Choose a semester</option>
+								<option>1st Semester</option>
+								<option>2nd Semester</option>
+								<option>Summer</option>
+							</select>
+							<label><b>Semester<span style="color: red">*</span></b></label>
+						</div>
+					</div>
+					<div class="col s6">
+						<br>
+						<div class="row">
+							<div class="col s5">
+								<div class="input-field input-width">
+									<select name="acad_year1" required>
+										<option value="" disabled selected>Choose a year</option>
+										<option>2019</option>
+										<option>2018</option>
+										<option>2017</option>
+									</select>
+									<label for="acad_year1"><b>Academic Year<span style="color: red">*</span></b></label>
+								</div>
+							</div>
+							<div class="col s2 center-align">
+								<br>
+								<i>to</i>
+							</div>
+							<div class="col s5">
+								<div class="input-field input-width">
+									<select name="acad_year2" required>
+										<option value="" disabled selected>Choose a year</option>
+										<option>2019</option>
+										<option>2018</option>
+										<option>2017</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12">
+						<label for="acad_year1"><b>Regular Students<span style="color: red">*</span></b></label>
+
+						<div class="chips chips-autocomplete input-width"></div>
+					</div>
+				</div>
+			</div> <!--END OF CARD CONTENT-->
+		</div>
+		<div class="right">
+			<a href="#"  class="btn waves-effect waves-light grey lighten-2 grey-text text-darken-3">CANCEL</a>&nbsp;<button class="btn waves-effect waves-light blue white-text right" name=submit>ADD</button></form>
+			<br><br><br>
+		</div>
+	</div>
+
+
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.modal').modal();
+				$('.chips').chips();
+				$('.tooltipped').tooltip();
+				$('.dropdown-trigger').dropdown();
+				$(".dropdown-trigger").dropdown({
+					coverTrigger: false
+				});
+				$('select').formSelect();
+
+				$('#example').DataTable({
+					"lengthChange": false,
+					"pagingType": "simple",
+					"pageLength": 10,
+					"dom": '<div>pt',
+					"language":{
+						"paginate":{
+							previous: "<i class='material-icons pag_lr'>chevron_left</i>",
+							next: "<i class='material-icons pag_lr'>chevron_right</i>"
+						}
+					}
+
+				});
+
+				oTable = $('#example').DataTable(); 
+				$('#autocomplete-input').keyup(function(){
+					oTable.search($(this).val()).draw() ;
+				});
+
+					$('.chips-autocomplete').chips({
+						autocompleteOptions: {
+							data: {
+								'Apple': null,
+								'Microsoft': null,
+								'Google': null
+							},
+							limit: Infinity,
+							minLength: 1
+						}
+					});
+
+				});
+
+			</script>
+		</body>
+		</html>
+
+		

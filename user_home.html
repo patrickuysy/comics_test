@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ComICS Admin - Courses</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="jquery/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/user.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, autoRotate:disabled" />
+</head>
+<body>
+	<div class="sidenav_user">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger tooltipped" data-tooltip="My Calendar" data-position="right">
+			<i class="large material-icons">calendar_today</i>
+		</a>
+		<hr class="navdivider grey darken-3">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger comfortaa active tooltipped" data-tooltip="4ITG 1st Sem A.Y. 2018-2019" data-position="right" id="spacename">
+			4ITG
+		</a>
+
+		<hr class="navdivider grey darken-3">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger tooltipped" data-tooltip="Create Student Space" data-position="right">
+			<i class="large material-icons">add</i>
+		</a>
+
+	</div>
+	<div class="sidenav_course">
+		<span class="comfortaa">COURSES</span>
+		<ul class="course_list">
+			<li class="selected_course"># ICS 115</li>
+			<li># IT 205</li>
+		</ul>
+
+		<span class="comfortaa">MEMBERS</span>
+		<ul class="members_list ">
+			<li>JOSE ANGELO ROPA DE VERAAAAAAAAAAAAA</li>
+			<li>CAMILLA MARIE NATIVIDAD MAGBANUA</li>
+			<li>RYZELL ROWAYNE VERZO MENDOZA</li>
+			<li>PATRICK ANGELO UY SY</li>
+			<li>JUAN DELA CRUZ</li>
+		</ul>
+	</div>
+		
+				<ul id="slide-out" class="sidenav">
+					<li class="stickeroo"><div class="user-view">
+						<a href="#name"><span class="white-text name">JOSE ANGELO ROPA DE VERA</span></a>
+						<a href="#email"><span class="white-text email">2015000000@ust-ics.mygbiz.com</span></a>
+					</div></li>
+					<li><a class="subheader">Student Space</a></li>
+					<li><a class="waves-effect" href="#!">4ITG</a></li>
+					<li><a class="subheader">Courses</a></li>
+					<li><a class="waves-effect" href="#!">#ICS125</a></li>
+					<li><a class="waves-effect" href="#!">#ICS115</a></li>
+					<li><a class="waves-effect" href="#!">#ICS115</a></li>
+					<li><a class="waves-effect" href="#!">#ICS115</a></li>
+							<li><a class="waves-effect" href="#!">#ICS115</a></li>
+					<li><a class="waves-effect" href="#!">#ICS115</a></li>
+							<li><a class="waves-effect" href="#!">#ICS115</a></li>
+							<li><a class="subheader">Switch to Admin View</a></li>
+					<li><a class="subheader">Logout</a></li>
+
+
+
+
+				</ul>
+				<div class="mobile_menu hide-on-med-and-up ">
+				<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+				#ICS 125
+				</div>
+
+
+
+	<div class="topbar">
+		<div class="row">
+			<div class="col s2 left-align">
+				<span class="hide-on-med-and-down">4ITG</span>
+			</div>
+			<div class="col s1 hide-on-med-and-down">
+				<a href="#!" class="dropdown-trigger2 white-text" data-target="leave_space"><i class="material-icons">more_vert</i></a>
+
+				<ul id="leave_space" class="dropdown-content user-account roboto">
+					<li><a href="#invitations_modal" class="modal-trigger">Leave Student Space</a></li>
+				</ul>
+			</div>
+			<div class="col s5 course_title">
+				# ICS 125 
+			</div>
+			<div class="col s4 right-align" style="margin-left: 60px;">
+				<a href="#!" class="white-text tooltipped hide-on-med-and-down" data-tooltip="Asst. Prof. Janette Sideno <hr class='white'> (Th) 2:30-4:00PM Rm. 49 <br> (F) 2:30-4:00 Rm. 53" data-position="left"><i class="material-icons">info</i></a>
+				<i class="material-icons">filter_list</i>
+				<a href="#!" class="dropdown-trigger2 white-text" data-target="leave_course"><i class="material-icons">more_vert</i></a>
+
+				<ul id="leave_course" class="dropdown-content user-account roboto">
+					<li><a href="#invitations_modal" class="modal-trigger">Leave Course</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="content">
+		<div class="row">
+			<div class="col s6"><!--ANNOUNCEMENT CARD-->
+				<div class="card pulse announcement_card hoverable" id="card1">
+					<div class="card-content">
+						<div class="chip red white-text right">Dec. 3, 2018</div><span class="card-title comfortaa">Quiz #1</span>
+						<hr class="grayline">
+						1. Data Mining<br>
+						2. Outsourcing<br>
+						3. Cloud<br>
+						<hr class="grayline">
+						<div class="chip file_chip blue-text text-darken-2">Note1.png</div>
+						<div class="chip file_chip blue-text text-darken-2">Note2.ppt</div>
+						<div class="chip file_chip blue-text text-darken-2">Note3.docx</div>
+					</div>
+				</div>
+			</div><!--ANNOUNCEMENT CARD END -->
+			<div class="col s6"><!--ANNOUNCEMENT CARD-->
+				<div class="card">
+					<div class="card-content">
+						<div class="chip red white-text right">Dec. 1, 2018</div><span class="card-title comfortaa">Quiz #2</span>
+						<hr class="grayline">
+						1. Coverage number one<br>
+						2. Coverage number two<br>
+						3. Last coverage<br>
+						<hr class="grayline">
+						<div class="chip file_chip blue-text text-darken-2">Note1.png</div>
+						<div class="chip file_chip blue-text text-darken-2">Note2.ppt</div>
+					</div>
+				</div> 
+			</div><!--ANNOUNCEMENT CARD END -->
+			<div class="col s6"><!--ANNOUNCEMENT CARD-->
+				<div class="card completed">
+					<div class="card-content">
+						<div class="chip green white-text right">DONE</div><span class="card-title comfortaa">Group Presentation</span>
+						<hr class="grayline">
+						Prepare a presentation on topics listed down on the powerpoint provided. 1-5 members, 20 minutes per group.<br>
+						<hr class="grayline">
+						<div class="chip file_chip blue-text text-darken-2">IRM_Topics.ppt</div>
+
+					</div>
+				</div> 
+			</div><!--ANNOUNCEMENT CARD END -->
+
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="row valign-wrapper">
+			<div class="col s10" id="username">
+				JOSE ANGELO ROPA DE VERA
+			</div>
+
+			<div class="col s2 right-align">
+				<a href=#! class="dropdown-trigger2 waves-light waves-effect white-text valign-wrapper" data-target="settings" style="margin-top: -2px;"><i class="material-icons">settings</i></a>
+			</div>
+
+			<ul id="settings" class="dropdown-content user-account roboto">
+				<li><a href="#invitations_modal" class="modal-trigger">Invites (0)</a></li>
+				<li class="divider"></li>
+				<li><a href="#!" class="modal-trigger">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+	<div id="invitations_modal" class="modal">
+		<div class="modal-content">
+			<div class="right"><a href="#!" class="modal-close black-text"><i class="material-icons">close</i></a>
+			</div>
+			<h4>Invitations</h4>
+			<div class="grey lighten-3" style="border-radius: 20px; padding: 20px;">
+				<b class="red-text">JOSE ANGELO ROPA DE VERA</b> invited you to join the student space for <b>4ITG 1st Sem A.Y. 2018-2019</b>
+				<div class="right-align">
+					<a href=# class="white-text btn red darken-2 waves-effect waves-light">DECLINE</a>
+					<a href=# class="white-text btn green lighten-1 waves-effect waves-light">ACCEPT</a>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+
+	<div id="announcement_modal" class="modal  modal-fixed-footer">
+		<div class="modal-content">
+			<div class="right">
+				<label>
+					<input type="checkbox" class="filled-in"/>
+					<span>Mark as done</span>
+				</label>
+			</div>
+			<h4>Quiz #1</h4>
+			<span class="red-text">December 03, 2018</span><br>
+			<span class="show_more grey-text seen_mark"><i>Seen by JOSE ANGELO ROPA DE VERA, PATRICK ANGELO UY SY, and 3 more..</i></span><br>
+
+			<span class="grey-text seen_mark tooltipped" data-tooltip="JOSE ANGELO ROPA DE VERA<br>PATRICK ANGELO UY SY<br>CAMILLA MARIE MAGBANUA<br>RYZELL ROWAYNE MENDOZA<br>JUAN DELA CRUZ"><i>Marked done by JOSE ANGELO ROPA DE VERA, PATRICK ANGELO UY SY, and 3 more...</i></span>
+			<br>
+			<h5>Description</h5>
+			<ol>
+				<li>Data Mining</li>
+				<li>Outsourcing</li>
+				<li>Cloud</li>
+			</ol>
+
+			<h5>Attachments</h5>
+			<div class="chip file_chip blue-text text-darken-2">Notes1.png <span class="grey-text text-lighten-1">•<i>85kb</i></span></div>
+			<div class="chip file_chip blue-text text-darken-2">Cloud.ppt <span class="grey-text text-lighten-1">•<i>1,906kb</i></span></div>
+			<div class="chip file_chip blue-text text-darken-2">DataMining.docx<span class="grey-text text-lighten-1">•<i>300kb</i></span></div>
+
+			<h5>Other Class Attachments</h5>
+
+			<div class="grey lighten-3" style="border-radius: 20px; padding: 20px;">
+				<button class="btn-flat grey lighten-3 right"><i class="material-icons">delete</i></button>
+
+				<span class="red-text">JOSE ANGELO ROPA DE VERA</span> <br class="hide-on-med-and-up"> <span class=hide-on-med-and-down>attached</span> '<b>My personal notes</b> ' <i class="hide-on-med-and-down">• November 22, 2018</i><br>
+				This is a sample comment attached to a shared file.<br>
+
+				<div class="chip file_chip blue-text text-darken-2">Notes1.png <span class="grey-text text-lighten-1">•<i>85kb</i></span></div>
+				<div class="chip file_chip blue-text text-darken-2">Cloud.ppt <span class="grey-text text-lighten-1">•<i>1,906kb</i></span></div>
+				<div class="chip file_chip blue-text text-darken-2">DataMining.docx<span class="grey-text text-lighten-1">•<i>300kb</i></span></div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="grey lighten-2 modal-close waves-effect waves-light btn-flat blue-text text-darken-2">SHARE NOTES</a>
+			<a href="#!" class="grey lighten-2 modal-close waves-effect waves-light btn-flat">CLOSE</a>
+		</div>
+	</div>
+
+
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large red darken-4 waves-effect waves-light">
+			<i class="large material-icons">comment</i>
+		</a>
+	</div>
+
+
+
+
+
+
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/quickfit.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('.sidenav').sidenav({
+				draggable: true
+			});
+			$(".show_more").click(function () {
+				$(this).fadeOut(function () {
+					$(this).text(($(this).text() == 
+						'Seen by JOSE ANGELO ROPA DE VERA, PATRICK ANGELO UY SY, and 3 more..') 
+
+					? 'Seen by JOSE ANGELO ROPA DE VERA, PATRICK ANGELO UY SY, CAMILLA MARIE MAGBANUA, RYZELL ROWAYNE MENDOZA, JUAN DELA CRUZ' : 
+
+					'Seen by JOSE ANGELO ROPA DE VERA, PATRICK ANGELO UY SY, and 3 more..').fadeIn(100);
+				})
+			})
+
+
+			$('#username').quickfit();
+			$('#card1').click(function(){
+				$('#announcement_modal').modal('open');
+			});
+
+			$('.modal').modal();
+			$('.chips').chips();
+			$('.tooltipped').tooltip();
+			$('.dropdown-trigger').dropdown();
+			$(".dropdown-trigger").dropdown({
+				coverTrigger: false
+			});
+			$(".dropdown-trigger2").dropdown({
+				alignment: 'right',
+				coverTrigger: false
+			});
+
+			$('select').formSelect();
+
+			$('#example').DataTable({
+				"lengthChange": false,
+				"pagingType": "simple",
+				"pageLength": 10,
+				"dom": '<div>pt',
+				"language":{
+					"paginate":{
+						previous: "<i class='material-icons pag_lr'>chevron_left</i>",
+						next: "<i class='material-icons pag_lr'>chevron_right</i>"
+					}
+				}
+
+			});
+
+			oTable = $('#example').DataTable(); 
+			$('#autocomplete-input').keyup(function(){
+				oTable.search($(this).val()).draw() ;
+			});
+
+			$('.chips-autocomplete').chips({
+				autocompleteOptions: {
+					data: {
+						'Apple': null,
+						'Microsoft': null,
+						'Google': null
+					},
+					limit: Infinity,
+					minLength: 1
+				}
+			});
+
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ComICS Admin - Courses</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="jquery/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+	<link rel="stylesheet" href="css/animate.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style>
+	datepicker-date-box{background-color: #8b2323 !important; } .datepicker-date-display, .datepicker-weekday-display{background-color: #8b2323 !important; } .datepicker-table td.is-today {color: #8b2323 !important; } .datepicker-table td.is-selected {background-color: #8b2323 !important; color: #fff; } .datepicker-clear, .datepicker-today, .datepicker-done {color: #8b2323 !important; } .datepicker-cancel{color: grey !important; } .datepicker-day-button:focus {background-color: #ffd8a0 !important; } .timepicker-digital-display {background-color: #8b2323 !important; } .timepicker-canvas line{stroke: #8b2323 !important; } .timepicker-canvas-bearing{fill: #8b2323 !important; } .timepicker-canvas-bg{fill: #8b2323 !important; } .timepicker-tick.active, .timepicker-tick:hover {background-color: rgba(139, 25, 25, 0.25) !important; } .timepicker-close{color: #8b2323 !important; }
+	body
+	{
+		margin: 0;
+		font-family: "Roboto", sans-serif;
+	}
+	.dark-red
+	{
+		background-color: #8b2323 !important;
+	}
+	.nav-wrapper
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #8B2323, #5E181F) !important;  
+		background: linear-gradient(to bottom, #8B2323, #5E181F) !important; 
+
+	}
+	.search-bar
+	{
+		background: #333333;
+		background: -webkit-linear-gradient(to bottom, #BB8181, #916468) !important;  
+		background: linear-gradient(to bottom, #BB8181, #916468) !important;
+		color: white !important; 
+
+	}	
+	.input-field {width: 70%; margin: auto; } 
+	.drop {box-shadow: 0px 2px 5px #b5b5b5; font-family: "Roboto";}
+	.title{padding-left: 0.9em !important; font-size: 1.4em !important; font-family: "Comfortaa" !important;}
+	.tab a{color: #797979 !important;}
+	.tab a.active {background-color: #d9d9d9 !important; color: #de3d3d !important; font-family: "Roboto" !important; } 
+	.sidenave {
+		padding: 10px;
+		height: 100%;
+		width: 40%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		overflow-x: hidden;
+		padding-top: 20px;
+		border-right: 2px solid #dedede;
+	}
+
+	.nav-wrapper{z-index:2 !important;}
+	.dataTables_filter {display: none; } .dataTables_paginate {float: left; margin-top: -56px; margin-right: 5px; } .dataTables_paginate .paginate_button {transition: 0.25s; height: 42px; } .dataTables_paginate .paginate_button:hover {background-color: #8B2323 !important; color: #8B2323 !important; background: #8B2323 !important; border: 1px solid #8B2323 !important; transition: 0.25s; } .dataTables_info {float: right !important; margin-top: -52px; margin-right: 120px; } table.dataTable thead th {padding: 10px 18px; border-bottom: 2px solid #8B2323 !important; } table.dataTable table {padding: 10px 18px 6px 18px; border-bottom: : 1px solid #8B2323 !important; } table.dataTable.no-footer {border-bottom: 2px solid #8B2323 !important; } table.dataTable {margin-top: 55px; }
+
+	.user-account{
+		width: 200px !important;
+
+	}
+
+	.dropdown-content a
+	{
+		color: #8B2323 !important;
+	}
+	.btn-flat:hover {background-color: #8B2323 !important; color: white !important; }
+	.pag_lr{color: #333 !important;}
+	.pag_lr:hover{color: white !important}
+	.input-width {width: 100%; }
+	.input-field input[type=text]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=text]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } .input-field input[type=password]:focus + label {color: #8b2323 !important; } /* label underline focus color */ .input-field input[type=password]:focus {border-bottom: 1px solid  #8b2323  !important; box-shadow: 0 1px 0 0  #8b2323  !important; } option {color: #8b2323 !important; } .input-field input[type=date]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=date]:focus + label {color: #8b2323 !important;} .input-field input[type=date]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=date]:focus + label {color: #8b2323 !important;}.input-field input[type=datetime-local]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;} .input-field input[type=datetime-local]:focus + label {color: #8b2323 !important;} .input-field input[type=time]:focus + label {color: #8b2323 !important;} .input-field input[type=time]:focus {border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;}
+	ul.dropdown-content.select-dropdown li span {
+		color: #8b2323; 
+	}
+
+	.chips:focus
+	{
+		border-bottom: 1px solid #8b2323 !important; box-shadow: 0 1px 0 0 #8b2323 !important;
+	}
+
+	.rogue_label
+	{
+		margin-top: -20px !important;
+	}
+
+	.rogue_label_modal
+	{
+		margin-top: 10px !important;
+	}
+
+
+	h4
+	{
+		font-family: "Comfortaa" !important;
+		font-size: 1.7em !important;
+	}
+
+</style>
+</head>
+<body>
+	<nav> <!--NAV START--------------------------------------------------------------->
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo title">ComICS Admin</a>
+			<ul id="nav-mobile" class="right">
+				<li><a href="#!" class="dropdown-trigger active" data-target="logout"><i class="material-icons">account_circle</i></a></li>
+			</ul>
+			<ul id="logout" class="dropdown-content user-account">
+				<li><a href="#!" class="modal-trigger">Switch to Regular View</a></li>
+				<li class="divider"></li>
+				<li><a href="#!" class="modal-trigger">Logout</a></li>
+			</ul> 
+			<div class="nav-content drop">
+				<ul class="tabs grey lighten-5">
+					<li class="tab"><a href="#" >Student Space</a></li>
+					<li class="tab"><a href="#">Courses</a></li>
+					<li class="tab"><a href="#" class="active" >Announcements</a></li>
+					
+					<li class="tab"><a href="#">Schedule</a></li>
+					<li class="tab"><a href="#">Members</a></li>
+					<li class="tab"><a href="#">Content</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> <!--NAV END--------------------------------------------------------------->
+	<div style="width: 85%; margin: auto; margin-top:66px;">
+		<form>
+			<h4 class="grey-text text-dark comfortaa">Add Announcement</h4>
+			<div class="card white">
+				<div class="card-content grey-text text-darken-3">
+					<div class="row">
+						<div class="col s4">
+							<br>
+							<div class="input-field input-width">
+								<input id="announcement_title" name="announcement_title" type="text" required>
+								<label for="announcement_title"><b>Announcement Title <span class="red-text">*</span></b></label>
+							</div>
+						</div>
+
+						<div class="col s4">
+							<br>
+							<div class="input-field input-width">
+								<input id="description" name="description" type="text" required>
+								<label for="description"><b>Description <span class="red-text">*</span></b></label>
+							</div>
+						</div>
+						<div class="col s4">
+							<label for="course_code"><b>Course Code <span class="red-text">*</span></b></label>
+
+							<select id="course_code" name="course_code" required>
+								<option>ICS 205</option>
+							</select>
+
+						</div>
+						<div class="col s3">
+							<br>
+							<div class="input-field input-width">
+								<input id="start_date" type="text" class="datepicker" name="start_date" required>
+								<label for="start_date"><b>Start date<span class="red-text">*</span></b></label>
+							</div>
+						</div>
+
+						<div class="col s3">
+							<br>
+							<div class="input-field input-width">
+								<input id="start_time" type="text" class="timepicker" name="start_time" required>
+								<label for="start_time"><b>Start time<span class="red-text">*</span></b></label>
+							</div>
+						</div>
+
+						<div class="col s3">
+							<br>
+							<div class="input-field input-width">
+								<input id="end_date" type="text" class="datepicker" name="end_date" required>
+								<label for="end_date"><b>End date<span class="red-text">*</span></b></label>
+							</div>
+						</div>
+
+						<div class="col s3">
+							<br>
+							<div class="input-field input-width">
+								<input id="end_time" type="text" class="timepicker"  name="end_time" required>
+								<label for="end_time"><b>End time<span class="red-text">*</span></b></label>
+							</div>
+						</div>
+					<div class="col s12 center-align">
+						<br>
+						<a href="#!" class="btn waves-effect waves-light blue white-text" style="border-radius: 100px;">CHOOSE A FILE</a>
+						<br>
+					</div>
+
+						<div class="col s12">
+							<label>Files uploaded</label>
+						<ul class="collection with-header" id="filelist">
+
+							<!-- jquery add here -->
+						</ul>
+					</div>
+					</div>
+				</div>
+			</div>
+		<div class="right">
+			<a href="#"  class="btn waves-effect waves-light grey lighten-2 grey-text text-darken-3">CANCEL</a>&nbsp;<button class="btn waves-effect waves-light blue white-text right" name=submit>ADD</button></form>
+			<br><br><br>
+		</div>
+
+
+
+		</form>
+
+	</div>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/js/materialize.clockpicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.tooltipped').tooltip();
+			$('.dropdown-trigger').dropdown();
+			$(".dropdown-trigger").dropdown({
+				coverTrigger: false
+			});
+			$('.fixed-action-btn').floatingActionButton();
+			$('select').formSelect();
+
+
+			$('#example').DataTable({
+				"lengthChange": false,
+				"pagingType": "simple",
+				"pageLength": 10,
+				"dom": '<div>pt',
+				"language":{
+					"paginate":{
+						previous: "<i class='material-icons pag_lr'>chevron_left</i>",
+						next: "<i class='material-icons pag_lr'>chevron_right</i>"
+					}
+				}
+
+			});
+
+			$('.datepicker').datepicker();
+			$('.timepicker').timepicker({
+				twelveHour: false
+			});
+
+			oTable = $('#example').DataTable(); 
+			$('#autocomplete-input').keyup(function(){
+				oTable.search($(this).val()).draw() ;
+			});
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ComICS Admin - Courses</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="jquery/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/user.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+	<div class="sidenav_user">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger tooltipped" data-tooltip="My Calendar" data-position="right">
+			<i class="large material-icons">calendar_today</i>
+		</a>
+		<hr class="navdivider grey darken-3">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger comfortaa active tooltipped" data-tooltip="4ITG 1st Sem A.Y. 2018-2019" data-position="right">
+			4ITG
+		</a>
+
+		<hr class="navdivider grey darken-3">
+		<a href="#!" class="btn-floating btn-large grey darken-3 waves-effect waves-light modal-trigger tooltipped" data-tooltip="Create Student Space" data-position="right">
+			<i class="large material-icons">add</i>
+		</a>
+
+	</div>
+
+
+	<div class="topbar2">
+		<div class="row">
+			<div class="col s7 left-align">
+				ComICS: Chatbot
+			</div>
+			<div class="col s5 right-align">
+				<div class="row valign-wrapper">
+					<div class="col s10 right-align" id="username">
+						JUAN DELA CRUZ
+					</div>
+
+					<div class="col s1 right-align">
+						<a href=#! class="dropdown-trigger2 waves-light waves-effect white-text valign-wrapper" data-target="settings" style="margin-top: -2px;"><i class="material-icons">settings</i></a>
+					</div>
+
+					<ul id="settings" class="dropdown-content user-account roboto">
+						<li><a href="#invitations_modal" class="modal-trigger">Invites (0)</a></li>
+						<li class="divider"></li>
+						<li><a href="#!" class="modal-trigger">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="content2">
+		<div class="card white">
+			<div class="card-content center-align">
+				<img src="robot.gif" width="250">
+				<br>
+				<span class="grey-text comfortaa">Hello human! I'm COMICS, <br>
+					we have never talked before! <br>
+				If you need anything, let me know! Beep boop.</span><br><br><br><br><br><br>
+				<div class="row">
+					<div class="col s10 input-field input_width">
+						<input type="text" class="chatbot_input input">
+					</div>
+
+					<div class="col s2">
+						<button class="send_btn">SEND</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<div id="invitations_modal" class="modal">
+		<div class="modal-content">
+			<div class="right"><a href="#!" class="modal-close black-text"><i class="material-icons">close</i></a>
+			</div>
+			<h4>Invitations</h4>
+			<div class="grey lighten-3" style="border-radius: 20px; padding: 20px;">
+				<b class="red-text">JOSE ANGELO ROPA DE VERA</b> invited you to join the student space for <b>4ITG 1st Sem A.Y. 2018-2019</b>
+				<div class="right-align">
+					<a href=# class="white-text btn red darken-2 waves-effect waves-light">DECLINE</a>
+					<a href=# class="white-text btn green lighten-1 waves-effect waves-light">ACCEPT</a>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/quickfit.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('.remove_file').click(function(){
+				$(this).closest('.file_container').remove();
+			});
+			$('#username').quickfit();
+			$('#card1').click(function(){
+				$('#announcement_modal').modal('open');
+			});
+
+			$('.modal').modal();
+			$('.chips').chips();
+			$('.tooltipped').tooltip();
+			$('.dropdown-trigger').dropdown();
+			$(".dropdown-trigger").dropdown({
+				coverTrigger: false
+			});
+			$(".dropdown-trigger2").dropdown({
+				alignment: 'right',
+				coverTrigger: false
+			});
+
+			$('select').formSelect();
+
+			$('#example').DataTable({
+				"lengthChange": false,
+				"pagingType": "simple",
+				"pageLength": 10,
+				"dom": '<div>pt',
+				"language":{
+					"paginate":{
+						previous: "<i class='material-icons pag_lr'>chevron_left</i>",
+						next: "<i class='material-icons pag_lr'>chevron_right</i>"
+					}
+				}
+
+			});
+
+			oTable = $('#example').DataTable(); 
+			$('#autocomplete-input').keyup(function(){
+				oTable.search($(this).val()).draw() ;
+			});
+
+			$('.chips-autocomplete').chips({
+				autocompleteOptions: {
+					data: {
+						'Apple': null,
+						'Microsoft': null,
+						'Google': null
+					},
+					limit: Infinity,
+					minLength: 1
+				}
+			});
+
+		});
+
+	</script>
+</body>
+</html>

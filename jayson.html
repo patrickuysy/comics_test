@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jayson</title>
+</head>
+<body>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+	<style>
+	.logo
+	{
+		float: left;
+		display: block;
+		padding-right: 10px;
+		width: 100px;
+	}
+
+	.comfortaa
+	{
+		font-family: "Comfortaa";
+	}
+
+	.roboto
+	{
+		font-family: "Roboto";
+	}
+
+	.heading
+	{
+		width: 100%;
+	}
+	.rush
+	{
+		border: 2px solid #0d47a1;
+		padding: 20px;
+		text-align: center;
+		width: 100px;
+		margin-top: 15px;
+		border-radius: 8px;
+	}
+
+	.blue-text
+	{
+		color: #0d47a1;
+	}
+
+	.blue
+	{
+		background: #0d47a1 !important;
+		color: white;
+	}
+
+	.lighter-blue
+	{
+		background: #0e67c2;
+	}
+
+	{
+		padding: 5px;
+
+	}
+
+	.slip
+	{
+		border: 2px solid #0d47a1;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	.slip td
+	{
+		border: 2px solid #0d47a1;
+		padding: 8px;
+	}
+
+	.slip th
+	{
+		border: 2px solid #0d47a1;
+		background-color: #3283ce;
+		text-align: left;
+		padding: 8px;
+		color: white;
+		font-family: comfortaa;
+
+	}
+
+	b
+	{
+		font-family: Comfortaa;
+		color: #0d47a1;
+	}
+</style>
+<table class="heading">
+	<tr>
+		<td>
+			<img src="https://i.imgur.com/qNfnFn3.png" class="logo">
+			<h3 class="comfortaa blue-text">PASIG RIVER REHABILITATION COMMISION</h3>
+			<p class="roboto">DOCUMENT ROUTING SLIP</p></td>
+			<td style="float: right;">
+				<div class="roboto rush">
+					<label>
+						<input type="checkbox" checked="checked">
+						<span class="checkmark"></span>
+						RUSH
+					</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+<br><br>
+	<table class="roboto slip">
+		<tr>
+			<td colspan="2" ><b>From:</b> <br>	&nbsp;	&nbsp;'.$docu->sender.'</td>
+			<td colspan="2"><b>Date Received:</b>
+				<br> 	&nbsp;	&nbsp;</td>
+				<td colspan="2"><b>Reference Number:</b> <br>
+					&nbsp;	&nbsp;'.$docu->docu_id.'</td>
+				</tr>
+
+				<tr>
+					<td colspan="6"><b>Subject:</b>
+						<br>	&nbsp;	&nbsp; '.$docu->subject.'</td>
+					</tr>
+
+					<tr>
+						<th colspan="6" class="blue" style="padding: 10px; text-align: center !important;">ROUTING SLIP</th>
+					</tr>
+
+					<tr>
+						<th >FROM</th>
+						<th >TO</th>
+						<th >DATE</th>
+						<th >INSTRUCTIONS/REMARKS</th>
+						<th >DEADLINE</th>
+						<th >DATE COMPLIED</th>
+					</tr>
+
+					<tr>
+						<td >'.$docu->sender.'</td>
+						<td >'.$docu->recipient.'</td>
+						<td >date right now</td>
+						<td > Wala pang remarks, nasa kabilang table</td>
+						<td >'.$docu->final_action_date.'</td>
+						<td >date complied</td>
+
+					</tr>
+				</table>
+			</body>
+			</html>
